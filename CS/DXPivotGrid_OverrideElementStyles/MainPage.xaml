@@ -1,0 +1,36 @@
+﻿<UserControl xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid"  
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             dxc:ThemeManager.ApplicationTheme="Office2010Black"
+             x:Class="DXPivotGrid_OverrideElementStyles.MainPage"
+             d:DesignHeight="300" d:DesignWidth="400"
+             mc:Ignorable="d">
+    <Grid x:Name="LayoutRoot" Background="White">
+        <dxpg:PivotGridControl x:Name="pivotGridControl1">
+            <dxpg:PivotGridControl.FieldHeaderContentStyle>
+                <Style TargetType="dxe:TextEdit">
+                    <Setter Property="Cursor" Value="Stylus"  />
+                    <Setter Property="Foreground" Value="#ffd189" />
+                    <Setter Property="DisplayFormatString" Value="{}({0})"/>
+                </Style>
+            </dxpg:PivotGridControl.FieldHeaderContentStyle>
+            <dxpg:PivotGridControl.Fields>
+                <dxpg:PivotGridField FieldName="ShipName" Caption="Customer" Area="RowArea"
+                                     x:Name="fieldCustomer"/>
+                <dxpg:PivotGridField FieldName="ShippedDate" GroupInterval="DateQuarter" 
+                                     Caption="Quarter" Area="ColumnArea" 
+                                     ValueFormat="Qtr {0}"
+                                     x:Name="fieldQuarter"/>
+                <dxpg:PivotGridField FieldName="ShippedDate" GroupInterval="DateMonth"
+                                     Caption="Month" Area="ColumnArea"
+                                     x:Name="fieldMonth"/>
+                <dxpg:PivotGridField FieldName="Freight" Area="DataArea"
+                                     x:Name="fieldFreight"/>
+            </dxpg:PivotGridControl.Fields>
+        </dxpg:PivotGridControl>
+    </Grid>
+</UserControl>
